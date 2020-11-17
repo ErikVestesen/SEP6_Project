@@ -1,4 +1,4 @@
-﻿{
+{
   "iisSettings": {
     "windowsAuthentication": false, 
     "anonymousAuthentication": true, 
@@ -18,7 +18,7 @@
     "SEP6_Project": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:8080",
+      "applicationUrl": "http://localhost:8080",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

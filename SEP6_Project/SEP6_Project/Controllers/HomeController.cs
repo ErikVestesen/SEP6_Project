@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SEP6_Project.Models;
+using System.Data.SqlClient;
 
 namespace SEP6_Project.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -20,6 +22,14 @@ namespace SEP6_Project.Controllers
 
         public IActionResult Index()
         {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+            "Data Source=SERVERNAME;" +
+            "Initial Catalog=DATABASE_NAME;" +
+            "User id=USERNAME;" +
+            "Password=PASSWORD;";
+            conn.Open();
+
             return View();
         }
 

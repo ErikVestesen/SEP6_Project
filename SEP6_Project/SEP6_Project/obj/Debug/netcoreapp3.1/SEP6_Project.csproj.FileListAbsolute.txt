@@ -72,3 +72,9 @@ C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\obj\Deb
 C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\obj\Debug\netcoreapp3.1\SEP6_Project.pdb
 C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\obj\Debug\netcoreapp3.1\SEP6_Project.genruntimeconfig.cache
 C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\obj\Debug\netcoreapp3.1\SEP6_Project.csproj.CopyComplete
+C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

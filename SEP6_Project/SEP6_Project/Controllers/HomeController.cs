@@ -22,13 +22,7 @@ namespace SEP6_Project.Controllers
 
         public IActionResult Index()
         {
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-            "Data Source=SERVERNAME;" +
-            "Initial Catalog=DATABASE_NAME;" +
-            "User id=USERNAME;" +
-            "Password=PASSWORD;";
-            conn.Open();
+            DatabaseOperations db = new DatabaseOperations();
 
             return View();
         }

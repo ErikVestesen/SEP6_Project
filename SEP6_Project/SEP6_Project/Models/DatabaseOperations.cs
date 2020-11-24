@@ -9,18 +9,20 @@ namespace SEP6_Project.Models
     public class DatabaseOperations
     {
         SqlConnection conn = new SqlConnection();
-        public string getWeather()
+        public Weather getWeather()
         {
+            Weather weather = new Weather();
             connect();
-            string weather = "";
-            string query = "select * FROM WEATHER where wind_speed = '8.05546' and time_hour ='2013-05-09T03:00:00Z'";
+            string query = "select origin, year, month, day FROM WEATHER where wind_speed = '8.05546' and time_hour ='2013-05-09T03:00:00Z'";
             SqlCommand test = new SqlCommand(query, conn);
             SqlDataReader reader = test.ExecuteReader();
             while (reader.Read())
             {
-
+                weather.Origin = reader["origin"].ToString();
+                weather.Year = Convert.ToInt32(reader["year"].ToString());
+                weather.Month = Convert.ToInt32(reader["month"].ToString());
+                weather.Day = Convert.ToInt32(reader["day"].ToString());
             }
-            test.ExecuteNonQuery();
             return weather;
         }
 

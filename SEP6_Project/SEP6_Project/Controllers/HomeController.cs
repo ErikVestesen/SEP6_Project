@@ -23,8 +23,9 @@ namespace SEP6_Project.Controllers
         public IActionResult Index()
         {
             DatabaseOperations db = new DatabaseOperations();
-
-            return View();
+            Weather w = new Weather();
+            w = db.getWeather();
+            return View(w);
         }
 
         public IActionResult Privacy()
@@ -32,10 +33,10 @@ namespace SEP6_Project.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        //public IActionResult Error()
+        //{
+        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        //}
     }
 }

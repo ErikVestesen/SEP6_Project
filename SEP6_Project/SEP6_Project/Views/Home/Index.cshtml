@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
+@model SEP6_Project.Models.Weather 
 <html>
 <body class="is-preload">
 
@@ -30,7 +30,7 @@
                 <div class="col-6 col-12-medium">
                     <header class="major">
                         <h2>
-                            Lorem ipsum dolor adipiscing<br />
+                            @Model.Origin<br />
                             amet dolor consequat
                         </h2>
                     </header>

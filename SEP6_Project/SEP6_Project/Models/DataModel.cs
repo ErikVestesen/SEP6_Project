@@ -9,6 +9,8 @@ namespace SEP6_Project.Models
     {
         public IDictionary<int, int> flights = new Dictionary<int, int>();
 
-        public List<int> flights2 = new List<int>();
+        public List<int> flightsJFK { get; set; }
+        public List<int> flightsEWR { get; set; }
+        public List<int> flightsLGA { get; set; }
     }
 }

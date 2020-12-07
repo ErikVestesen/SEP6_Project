@@ -7,28 +7,39 @@ function loadFlights() {
     var element = document.getElementById("myfirstchart");
 
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: 'Home/SelectOrigin',
-        success: function (result) {
-            alert(result.d);
+        data: {},
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",  
+        success: function (response) {
+
+            alert(response);
+            
+
             Morris.Bar({
                 element: element,
                 data: [
-                    { y: '2006', a: 100, b: 90 },
-                    { y: '2007', a: 75, b: 65 },
-                    { y: '2008', a: 50, b: 40 },
-                    { y: '2009', a: 75, b: 65 },
-                    { y: '2010', a: 50, b: 40 },
-                    { y: '2011', a: 75, b: 65 },
-                    { y: '2012', a: 100, b: 90 }
+                    { y: 'January', a: response[0]},
+                    { y: 'Febuary', a: response[1]},
+                    { y: 'March', a: response[2]},
+                    { y: 'April', a: response[3] },
+                    { y: 'May', a: response[4] },
+                    { y: 'June', a: response[5]},
+                    { y: 'July', a: response[6] },
+                    { y: 'August', a: response[7] },
+                    { y: 'September', a: response[8]},
+                    { y: 'October', a: response[9]},
+                    { y: 'November', a: response[10]},
+                    { y: 'December', a: response[11], b: 3100, c:2800 } //b and c should be collected values of EWR and LGA
                 ],
                 xkey: 'y',
-                ykeys: ['a', 'b'],
-                labels: ['Series A', 'Series B']
+                ykeys: ['a', 'b', 'c'],
+                labels: ['JFK Flights', 'EWR Flights', 'LGA Flights']
             });
         },
         error: function (e) {
-            $("#divResult").html("Something Wrong.");
+            alert("Something Wrong.");
         }
     });
 }

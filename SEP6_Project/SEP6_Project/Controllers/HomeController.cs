@@ -33,12 +33,14 @@ namespace SEP6_Project.Controllers
             return View();
         }
 
-        public DataModel SelectOrigin()
+        [HttpGet]
+        public List<int> SelectOrigin()
         {
+            List<int> flights = new List<int>();
             DataModel dm = new DataModel();
             DatabaseOperations db = new DatabaseOperations();
-            dm.flights = db.FlightsOriginJFK();
-            return dm;
+            flights = db.FlightsOriginJFK();
+            return flights;
         }
 
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

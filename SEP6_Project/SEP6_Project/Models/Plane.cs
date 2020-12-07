@@ -12,5 +12,5 @@ public class Plane
     public int Engines { get; set; }
     public int Seats { get; set; }
     public int? Speed { get; set; }
-    public string? Engine { get; set; }
+    public string Engine { get; set; }
 }

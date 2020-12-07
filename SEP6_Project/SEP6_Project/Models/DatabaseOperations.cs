@@ -8,11 +8,12 @@ namespace SEP6_Project.Models
 {
     public class DatabaseOperations
     {
-        SqlConnection conn = new SqlConnection();
+        SqlConnection conn = new SqlConnection("Data Source=den1.mssql8.gear.host;Initial Catalog=sep6;User id=sep6;Password=Dr4uvX~_Nkx4;");
+
         public Weather getWeather()
         {
+            conn.Open();
             Weather weather = new Weather();
-            connect();
             string query = "select origin, year, month, day FROM WEATHER where wind_speed = '8.05546' and time_hour ='2013-05-09T03:00:00Z'";
             SqlCommand test = new SqlCommand(query, conn);
             SqlDataReader reader = test.ExecuteReader();
@@ -23,17 +24,93 @@ namespace SEP6_Project.Models
                 weather.Month = Convert.ToInt32(reader["month"].ToString());
                 weather.Day = Convert.ToInt32(reader["day"].ToString());
             }
+            reader.Close();
+            conn.Close();
+            
             return weather;
         }
 
-        public void connect()
+        public IDictionary<int, int> TotalFlightsMonth()
         {
-            conn.ConnectionString =
-            "Data Source=den1.mssql8.gear.host;" +
-            "Initial Catalog=sep6;" +
-            "User id=sep6;" +
-            "Password=Dr4uvX~_Nkx4;";
+            IDictionary<int, int> flights = new Dictionary<int, int>();
+
             conn.Open();
+            for (int j = 1; j < 13; j++)
+            {
+                //int total = 0;
+                string query = "SELECT COUNT(month) as 'month' FROM flights WHERE month = " + j;
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    flights.Add(j, Convert.ToInt32(reader["month"]));
+                }
+                reader.Close();
+            }
+            conn.Close();
+            return flights;
+        }
+        public IDictionary<int, int> FlightsOriginJFK()
+        {
+            IDictionary<int, int> flights = new Dictionary<int, int>();
+
+            conn.Open();
+            for (int j = 1; j < 13; j++)
+            {
+                //int total = 0;
+                string query = "SELECT COUNT(month) as 'month' FROM flights WHERE month = " + j + "AND origin = 'JFK'";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    flights.Add(j, Convert.ToInt32(reader["month"]));
+                }
+                reader.Close();
+            }
+            conn.Close();
+            return flights;
+        }
+
+        public IDictionary<int, int> FlightsOriginEWR()
+        {
+            IDictionary<int, int> flights = new Dictionary<int, int>();
+
+            conn.Open();
+            for (int j = 1; j < 13; j++)
+            {
+                //int total = 0;
+                string query = "SELECT COUNT(month) as 'month' FROM flights WHERE month = " + j + "AND origin = 'EWR'";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    flights.Add(j, Convert.ToInt32(reader["month"]));
+                }
+                reader.Close();
+            }
+            conn.Close();
+            return flights;
+        }
+
+        public IDictionary<int, int> FlightsOriginLGA()
+        {
+            IDictionary<int, int> flights = new Dictionary<int, int>();
+
+            conn.Open();
+            for (int j = 1; j < 13; j++)
+            {
+                //int total = 0;
+                string query = "SELECT COUNT(month) as 'month' FROM flights WHERE month = " + j + "AND origin = 'LGA'";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    flights.Add(j, Convert.ToInt32(reader["month"]));
+                }
+                reader.Close();
+            }
+            conn.Close();
+            return flights;
         }
     }
 }

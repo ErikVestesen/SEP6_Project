@@ -77,3 +77,4 @@ C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\bin\Deb
 C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\obj\Debug\netcoreapp3.1\SEP6_Project.csprojAssemblyReference.cache

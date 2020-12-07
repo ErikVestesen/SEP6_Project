@@ -22,15 +22,23 @@ namespace SEP6_Project.Controllers
 
         public IActionResult Index()
         {
+            DataModel dm = new DataModel();
             DatabaseOperations db = new DatabaseOperations();
-            Weather w = new Weather();
-            w = db.getWeather();
-            return View(w);
+            dm.flights = db.TotalFlightsMonth();
+            return View(dm);
         }
 
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public DataModel SelectOrigin()
+        {
+            DataModel dm = new DataModel();
+            DatabaseOperations db = new DatabaseOperations();
+            dm.flights = db.FlightsOriginJFK();
+            return dm;
         }
 
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

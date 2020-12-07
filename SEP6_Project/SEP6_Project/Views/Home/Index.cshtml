@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@model SEP6_Project.Models.Weather 
+@model SEP6_Project.Models.DataModel
 <html>
 <body class="is-preload">
 
@@ -23,14 +23,49 @@
         </div>
     </section>
 
-    <!-- One -->
+    <!-- 1 -->
+    <section id="one" class="main style1">
+        <div class="container">
+            <div class="row gtr-150">
+                <div class="col-6 col-12-medium">
+                    <h3>Total number of flights for each month</h3>
+                    @foreach (var flights in Model.flights)
+                    {
+                        <h5> Month # : @flights.Key  - Total flights : @flights.Value </h5>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2 -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+    <script src="~/js/flights.js"></script>
+
+    <section id="four" class="main style2 special">
+        <div class="container">
+            <header class="major">
+                <div id="myfirstchart" style="height: 250px;"></div>
+            </header>
+            <p>Sed lacus nascetur ac ante amet sapien.</p>
+            <ul class="actions special">
+                <li><a href="#" class="button wide primary">Sign Up</a></li>
+                <li><a href="#" class="button wide">Learn More</a></li>
+            </ul>
+        </div>
+
+        <!-- 3 -->
+    </section>
     <section id="one" class="main style1">
         <div class="container">
             <div class="row gtr-150">
                 <div class="col-6 col-12-medium">
                     <header class="major">
                         <h2>
-                            @Model.Origin<br />
                             amet dolor consequat
                         </h2>
                     </header>

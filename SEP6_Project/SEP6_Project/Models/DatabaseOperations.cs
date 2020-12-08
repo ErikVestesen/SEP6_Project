@@ -71,10 +71,10 @@ namespace SEP6_Project.Models
             return flights;
         }
 
-        public IDictionary<int, int> FlightsOriginEWR()
+        public List<int> FlightsOriginEWR()
         {
-            IDictionary<int, int> flights = new Dictionary<int, int>();
-
+            //IDictionary<int, int> flights = new Dictionary<int, int>();
+            List<int> flights = new List<int>();
             conn.Open();
             for (int j = 1; j < 13; j++)
             {
@@ -84,7 +84,7 @@ namespace SEP6_Project.Models
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    flights.Add(j, Convert.ToInt32(reader["month"]));
+                    flights.Add(Convert.ToInt32(reader["month"]));
                 }
                 reader.Close();
             }
@@ -92,10 +92,10 @@ namespace SEP6_Project.Models
             return flights;
         }
 
-        public IDictionary<int, int> FlightsOriginLGA()
+        public List<int> FlightsOriginLGA()
         {
-            IDictionary<int, int> flights = new Dictionary<int, int>();
-
+            //IDictionary<int, int> flights = new Dictionary<int, int>();
+            List<int> flights = new List<int>();
             conn.Open();
             for (int j = 1; j < 13; j++)
             {
@@ -105,7 +105,7 @@ namespace SEP6_Project.Models
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    flights.Add(j, Convert.ToInt32(reader["month"]));
+                    flights.Add(Convert.ToInt32(reader["month"]));
                 }
                 reader.Close();
             }

@@ -33,14 +33,16 @@ namespace SEP6_Project.Controllers
             return View();
         }
 
-        [HttpGet]
-        public List<int> SelectOrigin()
+        [System.Web.Mvc.HttpGet]
+        public JsonResult SelectOrigin()
         {
             List<int> flights = new List<int>();
             DataModel dm = new DataModel();
             DatabaseOperations db = new DatabaseOperations();
-            flights = db.FlightsOriginJFK();
-            return flights;
+            dm.flightsJFK = db.FlightsOriginJFK();
+            dm.flightsEWR = db.FlightsOriginEWR();
+            dm.flightsLGA = db.FlightsOriginLGA();
+            return Json(dm);
         }
 
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

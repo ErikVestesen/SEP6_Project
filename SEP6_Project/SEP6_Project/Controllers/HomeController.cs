@@ -33,7 +33,6 @@ namespace SEP6_Project.Controllers
             return View();
         }
 
-        [System.Web.Mvc.HttpGet]
         public JsonResult SelectOrigin()
         {
             List<int> flights = new List<int>();
@@ -51,9 +50,11 @@ namespace SEP6_Project.Controllers
 
             DataModel dm = new DataModel();
             DatabaseOperations db = new DatabaseOperations();
-            flights = db.Top10Flights(); 
 
-            dm.top10flights_origin = db.Top10FlightsForOrigin(flights); 
+            dm.top10flights = db.Top10Flights();
+            dm.topflightsJFK = db.Top10FlightsForOrigin(dm.top10flights, "JFK");
+            dm.topflightsEWR = db.Top10FlightsForOrigin(dm.top10flights, "EWR");
+            dm.topflightsLGA = db.Top10FlightsForOrigin(dm.top10flights, "LGA");
 
             return Json(dm);
         } 

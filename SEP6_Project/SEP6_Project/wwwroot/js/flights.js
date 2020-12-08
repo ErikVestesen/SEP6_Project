@@ -52,21 +52,21 @@ function Top10Flights() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
-            var keys = Object.keys(response.top10flights_origin);
+            var keys = Object.keys(response.top10flights);
             alert(keys);
             Morris.Bar({
                 element: element,
                 data: [
-                    { y: keys[0], a: response.top10flights_origin[0] },
-                    { y: keys[1], a: response.top10flights_origin[1] },
-                    { y: keys[2], a: response.top10flights_origin[2] },
-                    { y: keys[3], a: response.top10flights_origin[3] },
-                    { y: keys[4], a: response.top10flights_origin[4] },
-                    { y: keys[5], a: response.top10flights_origin[5] },
-                    { y: keys[6], a: response.top10flights_origin[6] },
-                    { y: keys[7], a: response.top10flights_origin[7] },
-                    { y: keys[8], a: response.top10flights_origin[8] },
-                    { y: keys[9], a: response.top10flights_origin[9] },
+                    { y: keys[0], a: response.topflightsJFK[0], b: response.topflightsEWR[0], c: response.topflightsLGA[0] },
+                    { y: keys[1], a: response.topflightsJFK[1], b: response.topflightsEWR[1], c: response.topflightsLGA[1] },
+                    { y: keys[2], a: response.topflightsJFK[2], b: response.topflightsEWR[2], c: response.topflightsLGA[2] },
+                    { y: keys[3], a: response.topflightsJFK[3], b: response.topflightsEWR[3], c: response.topflightsLGA[3] },
+                    { y: keys[4], a: response.topflightsJFK[4], b: response.topflightsEWR[4], c: response.topflightsLGA[4] },
+                    { y: keys[5], a: response.topflightsJFK[5], b: response.topflightsEWR[5], c: response.topflightsLGA[5] },
+                    { y: keys[6], a: response.topflightsJFK[6], b: response.topflightsEWR[6], c: response.topflightsLGA[6] },
+                    { y: keys[7], a: response.topflightsJFK[7], b: response.topflightsEWR[7], c: response.topflightsLGA[7] },
+                    { y: keys[8], a: response.topflightsJFK[8], b: response.topflightsEWR[8], c: response.topflightsLGA[8] },
+                    { y: keys[9], a: response.topflightsJFK[9], b: response.topflightsEWR[9], c: response.topflightsLGA[9] },
                 ],
                 xkey: 'y',
                 ykeys: ['a', 'b', 'c'],

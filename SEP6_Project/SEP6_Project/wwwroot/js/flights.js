@@ -78,3 +78,34 @@ function Top10Flights() {
         }
     });
 }
+
+function MeanAirtime() {
+    var element = document.getElementById("meanairtime");
+
+    $.ajax({
+        type: "GET",
+        url: 'Home/GetMeanAirTime',
+        data: {},
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            var keys = Object.keys(response.top10flights_origin);
+            alert(keys);
+            Morris.Bar({
+                element: element,
+                data: [
+                    { y: keys[0], a: response.MeanAirtime[0] },
+                    { y: keys[1], a: response.MeanAirtime[1] },
+                    { y: keys[2], a: response.MeanAirtime[2] },
+                    
+                ],
+                xkey: 'y',
+                ykeys: ['a', 'b'],
+                labels: ['Mean Airtime', 'Origin']
+            });
+        },
+        error: function (e) {
+            alert("Something Wrong.");
+        }
+    });
+}

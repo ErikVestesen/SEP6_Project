@@ -25,6 +25,7 @@ namespace SEP6_Project.Controllers
             DatabaseOperations db = new DatabaseOperations();
             dm.flights = db.TotalFlightsMonth();
             dm.top10flights = db.Top10Flights();
+            dm.meanAirtime = db.MeanAirtime();
             return View(dm);
         }
 
@@ -56,7 +57,19 @@ namespace SEP6_Project.Controllers
             dm.top10flights_origin = db.Top10FlightsForOrigin(flights); 
 
             return Json(dm);
-        } 
+        }
+        public JsonResult GetMeanAirTime()
+        {
+            IDictionary<string, int> flights = new Dictionary<string, int>();
+
+            DataModel dm = new DataModel();
+            DatabaseOperations db = new DatabaseOperations();
+            flights = db.MeanAirtime();
+
+            dm.meanAirtime = db.MeanAirtime();
+
+            return Json(dm);
+        }
 
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         //public IActionResult Error()

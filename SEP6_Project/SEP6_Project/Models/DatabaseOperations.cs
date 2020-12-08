@@ -154,5 +154,26 @@ namespace SEP6_Project.Models
             conn.Close();
             return JFKflights;
         }
+        //The mean AirTime of each of the origins in a table
+        public IDictionary<string, int> MeanAirtime(IDictionary<string, int> flights)
+        {
+            IDictionary<string, int> meanAirtime = new Dictionary<string, int>();
+
+            conn.Open();
+            string query = "";
+            foreach (var air_time in flights)
+            {
+                query = "SELECT AVG(CAST(air_time as bigint)) AS mean_air_time, origin FROM flights WHERE air_time  <> 'NA' GROUP BY origin";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    meanAirtime.Add(reader["air_time"].ToString(), Convert.ToInt32(reader["flights"]));
+                }
+                reader.Close();
+            }
+            conn.Close();
+            return meanAirtime;
+        }
     }
 }

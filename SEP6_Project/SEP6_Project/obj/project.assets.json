@@ -566,23 +566,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ErikV\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Arshad\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ErikV\\source\\repos\\Sep6 Project\\SEP6_Project\\SEP6_Project\\SEP6_Project.csproj",
+      "projectUniqueName": "C:\\Users\\Arshad\\source\\repos\\SEP6_Project\\SEP6_Project\\SEP6_Project\\SEP6_Project.csproj",
       "projectName": "SEP6_Project",
-      "projectPath": "C:\\Users\\ErikV\\source\\repos\\Sep6 Project\\SEP6_Project\\SEP6_Project\\SEP6_Project.csproj",
-      "packagesPath": "C:\\Users\\ErikV\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ErikV\\source\\repos\\Sep6 Project\\SEP6_Project\\SEP6_Project\\obj\\",
+      "projectPath": "C:\\Users\\Arshad\\source\\repos\\SEP6_Project\\SEP6_Project\\SEP6_Project\\SEP6_Project.csproj",
+      "packagesPath": "C:\\Users\\Arshad\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Arshad\\source\\repos\\SEP6_Project\\SEP6_Project\\SEP6_Project\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ErikV\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Arshad\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

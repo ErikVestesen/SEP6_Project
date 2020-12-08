@@ -47,12 +47,16 @@ namespace SEP6_Project.Controllers
 
         public JsonResult GetTop10()
         {
+            IDictionary<string, int> flights = new Dictionary<string, int>();
+
             DataModel dm = new DataModel();
             DatabaseOperations db = new DatabaseOperations();
-            dm.top10flights = db.Top10Flights();
-            
+            flights = db.Top10Flights(); 
+
+            dm.top10flights_origin = db.Top10FlightsForOrigin(flights); 
+
             return Json(dm);
-        }
+        } 
 
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         //public IActionResult Error()

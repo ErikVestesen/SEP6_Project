@@ -130,5 +130,29 @@ namespace SEP6_Project.Models
             conn.Close();
             return flights;
         }
+
+        public IDictionary<string, int> Top10FlightsForOrigin(IDictionary<string, int> flights)
+        {
+
+            IDictionary<string, int> JFKflights = new Dictionary<string, int>();
+
+            conn.Open();
+            //string query = "SELECT TOP(10) dest, Count(*) as flights FROM flights WHERE dest = "+origin+" GROUP BY dest ORDER BY Count(*) DESC";
+            string query = "";
+            foreach(var dest in flights)
+            {
+                query = "SELECT TOP(10) dest, Count(*) as flights FROM flights WHERE origin = 'JFK' AND dest = '" + dest.Key + "' GROUP BY dest ORDER BY dest DESC";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    JFKflights.Add(reader["dest"].ToString(), Convert.ToInt32(reader["flights"]));
+                }
+                reader.Close();
+            }
+            conn.Close();
+            return JFKflights;
+        }
     }
 }

@@ -12,5 +12,7 @@ namespace SEP6_Project.Models
         public List<int> flightsJFK { get; set; }
         public List<int> flightsEWR { get; set; }
         public List<int> flightsLGA { get; set; }
+
+        public IDictionary<string, int> top10flights { get; set; }
     }
 }

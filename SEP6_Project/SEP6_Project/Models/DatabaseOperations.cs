@@ -112,5 +112,23 @@ namespace SEP6_Project.Models
             conn.Close();
             return flights;
         }
+
+
+        public IDictionary<string, int> Top10Flights()
+        {
+            IDictionary<string, int> flights = new Dictionary<string, int>();
+
+            conn.Open();
+            string query = "SELECT TOP(10) dest, Count(*) as flights FROM flights GROUP BY dest ORDER BY Count(*) DESC";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                flights.Add(reader["dest"].ToString(), Convert.ToInt32(reader["flights"]));
+            }
+            reader.Close();
+            conn.Close();
+            return flights;
+        }
     }
 }

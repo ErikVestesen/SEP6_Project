@@ -23,7 +23,7 @@
         </div>
     </section>
 
-    <!-- 1 -->
+    <!-- 1 - Total number of flights pr. month -->
     <section id="one" class="main style1">
         <div class="container">
             <div class="row gtr-150">
@@ -38,7 +38,7 @@
         </div>
     </section>
 
-    <!-- 2 -->
+    <!-- 2 - Flights pr month from each origin -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
@@ -51,28 +51,23 @@
             <header class="major">
                 <div id="myfirstchart" style="height: 250px;"></div>
             </header>
-            <p>Sed lacus nascetur ac ante amet sapien.</p>
-            <ul class="actions special">
-                <li><a href="#" class="button wide primary">Sign Up</a></li>
-                <li><a href="#" class="button wide">Learn More</a></li>
-            </ul>
+            <p>Flights pr. month from each origin.</p>
         </div>
-
-        <!-- 3 -->
     </section>
+
+    <!-- 3 - Top 10 flights -->
     <section id="one" class="main style1">
         <div class="container">
             <div class="row gtr-150">
                 <div class="col-6 col-12-medium">
-                    <header class="major">
-                        <h2>
-                            amet dolor consequat
-                        </h2>
-                    </header>
-                    <p>Adipiscing a commodo ante nunc accumsan et interdum mi ante adipiscing. A nunc lobortis non nisl amet vis sed volutpat aclacus nascetur ac non. Lorem curae et ante amet sapien sed tempus adipiscing id accumsan.</p>
+                    <h3>Top 10 destinations and # of flights</h3>
+                    @foreach (var dest in Model.top10flights)
+                    {
+                        <h5> Destination : @dest.Key  - Total flights : @dest.Value </h5>
+                    }
                 </div>
                 <div class="col-6 col-12-medium imp-medium">
-                    <span class="image fit"><img src="~/images/pic01.jpg" alt="" /></span>
+                    <div id="topflights" style="height: 250px;"></div>
                 </div>
             </div>
         </div>

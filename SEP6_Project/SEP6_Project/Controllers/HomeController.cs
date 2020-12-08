@@ -14,7 +14,6 @@ namespace SEP6_Project.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -25,6 +24,7 @@ namespace SEP6_Project.Controllers
             DataModel dm = new DataModel();
             DatabaseOperations db = new DatabaseOperations();
             dm.flights = db.TotalFlightsMonth();
+            dm.top10flights = db.Top10Flights();
             return View(dm);
         }
 
@@ -42,6 +42,15 @@ namespace SEP6_Project.Controllers
             dm.flightsJFK = db.FlightsOriginJFK();
             dm.flightsEWR = db.FlightsOriginEWR();
             dm.flightsLGA = db.FlightsOriginLGA();
+            return Json(dm);
+        }
+
+        public JsonResult GetTop10()
+        {
+            DataModel dm = new DataModel();
+            DatabaseOperations db = new DatabaseOperations();
+            dm.top10flights = db.Top10Flights();
+            
             return Json(dm);
         }
 

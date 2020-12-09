@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model SEP6_Project.Models.TempModel
 <html>
 <body class="is-preload">
 
@@ -22,19 +23,19 @@
         </div>
     </section>
 
-    <!-- 1 - Total number of flights pr. month -->
+    <!-- 1 - Temperature at JFK -->
     <section id="one" class="main style1">
         <div class="container">
             <div class="row gtr-150">
                 <div class="col-6 col-12-medium">
-                    <h3>Total number of flights for each month</h3>
-
+                    <h3>Temperature at JFK</h3>
+                    <h3> °C</h3>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 2 - Flights pr month from each origin -->
+    <!-- 2 - The daily mean temperature (in Celsius) at JFK-->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
@@ -45,7 +46,7 @@
             <header class="major">
                 <div id="myfirstchart" style="height: 250px;"></div>
             </header>
-            <p>Flights pr. month from each origin.</p>
+            <p>Daily mean temperature.</p>
         </div>
     </section>
 
@@ -483,6 +484,9 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
     <script src="~/assets/js/breakpoints.min.js"></script>
     <script src="~/assets/js/util.js"></script>
     <script src="~/assets/js/main.js"></script>
+
+    <script src="~/js/temps.js"></script>
+
 
 </body>
 </html>

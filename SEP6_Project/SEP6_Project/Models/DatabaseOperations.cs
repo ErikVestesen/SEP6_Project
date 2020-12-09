@@ -136,28 +136,73 @@ namespace SEP6_Project.Models
             return flights;
         }
 
-        public IDictionary<string, int> Top10FlightsForOrigin(IDictionary<string, int> flights)
+        public List<int> Top10FlightsForOrigin(IDictionary<string, int> flights, string origin)
         {
 
-            IDictionary<string, int> JFKflights = new Dictionary<string, int>();
+            List<int> flightTotal = new List<int>(); 
 
             conn.Open();
             //string query = "SELECT TOP(10) dest, Count(*) as flights FROM flights WHERE dest = "+origin+" GROUP BY dest ORDER BY Count(*) DESC";
             string query = "";
             foreach(var dest in flights)
             {
-                query = "SELECT TOP(10) dest, Count(*) as flights FROM flights WHERE origin = 'JFK' AND dest = '" + dest.Key + "' GROUP BY dest ORDER BY dest DESC";
+                query = "SELECT TOP(10) dest, Count(*) as flights FROM flights WHERE origin = '"+origin+"' AND dest = '" + dest.Key + "' GROUP BY dest ORDER BY dest DESC";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    JFKflights.Add(reader["dest"].ToString(), Convert.ToInt32(reader["flights"]));
+                    flightTotal.Add(Convert.ToInt32(reader["flights"]));
                 }
                 reader.Close();
             }
             conn.Close();
-            return JFKflights;
+            return flightTotal;
+        }
+
+
+        //The mean AirTime of each of the origins in a table
+        public List<string> MeanAirtime()
+        {
+            List<string> meanAirtime = new List<string>();
+
+            conn.Open();
+            string query = "";
+
+            query = "SELECT AVG(CAST(air_time as bigint)) AS mean_air_time, origin FROM flights WHERE air_time  <> 'NA' GROUP BY origin";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                meanAirtime.Add(reader["origin"].ToString());
+                meanAirtime.Add(reader["mean_air_time"].ToString());
+            }
+            reader.Close();
+
+            conn.Close();
+            return meanAirtime;
+        }
+
+        //All weather observations from origin
+        public List<string> WeatherObservations()
+        {
+            List<string> weatherOb = new List<string>();
+
+            conn.Open();
+            string query = "";
+
+            query = "SELECT COUNT(*) AS Weather_Observations, origin FROM weather GROUP BY origin";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                weatherOb.Add(reader["origin"].ToString());
+                weatherOb.Add(reader["Weather_Observations"].ToString());
+            }
+            reader.Close();
+
+            conn.Close();
+            return weatherOb;
         }
 
 

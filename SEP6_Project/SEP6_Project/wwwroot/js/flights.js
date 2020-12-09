@@ -1,7 +1,8 @@
 ﻿window.onload = function () {
     this.loadFlights();
-    //this.Top10Flights();
-    //this.MeanAirtime();
+    this.Top10Flights();
+    this.GetMeanAir();
+    this.GetWeather();
 } 
 
 
@@ -43,65 +44,90 @@ function loadFlights() {
     });
 }
 
-//function Top10Flights() {
-//    var element = document.getElementById("topflights");
-
-//    $.ajax({
-//        type: "GET",
-//        url: 'Home/GetTop10',
-//        data: {},
-//        contentType: "application/json; charset=utf-8",
-//        dataType: "json",
-//        success: function (response) {
-//            var keys = Object.keys(response.top10flights_origin);
-//            Morris.Bar({
-//                element: element,
-//                data: [
-//                    { y: keys[0], a: response.top10flights_origin[0] },
-//                    { y: keys[1], a: response.top10flights_origin[1] },
-//                    { y: keys[2], a: response.top10flights_origin[2] },
-//                    { y: keys[3], a: response.top10flights_origin[3] },
-//                    { y: keys[4], a: response.top10flights_origin[4] },
-//                    { y: keys[5], a: response.top10flights_origin[5] },
-//                    { y: keys[6], a: response.top10flights_origin[6] },
-//                    { y: keys[7], a: response.top10flights_origin[7] },
-//                    { y: keys[8], a: response.top10flights_origin[8] },
-//                    { y: keys[9], a: response.top10flights_origin[9] },
-//                ],
-//                xkey: 'y',
-//                ykeys: ['a', 'b', 'c'],
-//                labels: ['JFK Flights', 'EWR Flights', 'LGA Flights']
-//            });
-//        },
-//        error: function (e) {
-//            alert("Something Wrong.");
-//        }
-//    });
-//}
-
-function MeanAirtime() {
-    var element = document.getElementById("meanairtime");
+function Top10Flights() {
+    var element = document.getElementById("topflights");
 
     $.ajax({
         type: "GET",
-        url: 'Home/GetMeanAirTime',
+        url: 'Home/GetTop10',
         data: {},
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
-            var keys = Object.keys(response.meanAirtime);
-            alert(keys);
+            var keys = Object.keys(response.top10flights);
             Morris.Bar({
                 element: element,
                 data: [
-                    { y: keys[0], a: response.MeanAirtime[0] },
-                    { y: keys[1], a: response.MeanAirtime[1] },
-                    { y: keys[2], a: response.MeanAirtime[2] },
-                    
+                    { y: keys[0], a: response.topflightsJFK[0], b: response.topflightsEWR[0], c: response.topflightsLGA[0] },
+                    { y: keys[1], a: response.topflightsJFK[1], b: response.topflightsEWR[1], c: response.topflightsLGA[1] },
+                    { y: keys[2], a: response.topflightsJFK[2], b: response.topflightsEWR[2], c: response.topflightsLGA[2] },
+                    { y: keys[3], a: response.topflightsJFK[3], b: response.topflightsEWR[3], c: response.topflightsLGA[3] },
+                    { y: keys[4], a: response.topflightsJFK[4], b: response.topflightsEWR[4], c: response.topflightsLGA[4] },
+                    { y: keys[5], a: response.topflightsJFK[5], b: response.topflightsEWR[5], c: response.topflightsLGA[5] },
+                    { y: keys[6], a: response.topflightsJFK[6], b: response.topflightsEWR[6], c: response.topflightsLGA[6] },
+                    { y: keys[7], a: response.topflightsJFK[7], b: response.topflightsEWR[7], c: response.topflightsLGA[7] },
+                    { y: keys[8], a: response.topflightsJFK[8], b: response.topflightsEWR[8], c: response.topflightsLGA[8] },
+                    { y: keys[9], a: response.topflightsJFK[9], b: response.topflightsEWR[9], c: response.topflightsLGA[9] },
                 ],
                 xkey: 'y',
-                ykeys: ['a', 'b'],
-                labels: ['Mean Airtime', 'Origin']
+                ykeys: ['a', 'b', 'c'],
+                labels: ['JFK Flights', 'EWR Flights', 'LGA Flights']
+            });
+        },
+        error: function (e) {
+            alert("Something Wrong.");
+        }
+    });
+}
+
+function GetMeanAir() {
+    var element = document.getElementById("meanAir");
+
+    $.ajax({
+        type: "GET",
+        url: 'Home/GetMeanAir',
+        data: {},
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            Morris.Bar({
+                element: element,
+                data: [
+                    { y: response.meanAirtime[0], a: response.meanAirtime[1]},
+                    { y: response.meanAirtime[2], a: response.meanAirtime[3]},
+                    { y: response.meanAirtime[4], a: response.meanAirtime[5]},
+                ],
+                xkey: 'y',
+                ykeys: ['a'],
+                labels: ['Mean airtime minutes']
+            });
+        },
+        error: function (e) {
+            alert("Something Wrong.");
+        }
+    });
+}
+
+function GetWeather() {
+    var element = document.getElementById("weatherobs");
+
+    $.ajax({
+        type: "GET",
+        url: 'Home/GetWeather',
+        data: {},
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            Morris.Bar({
+                element: element,
+                data: [
+                    { y: response.weatherObservation[0], a: response.weatherObservation[1] },
+                    { y: response.weatherObservation[2], a: response.weatherObservation[3] },
+                    { y: response.weatherObservation[4], a: response.weatherObservation[5] },
+                ],
+                xkey: 'y',
+                ykeys: ['a'],
+                labels: ['Weather observations']
             });
         },
         error: function (e) {

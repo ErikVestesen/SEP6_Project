@@ -30,6 +30,11 @@ namespace SEP6_Project.Models
             return weather;
         }
 
+        internal IDictionary<string, int> MeanAirtime()
+        {
+            throw new NotImplementedException();
+        }
+
         public IDictionary<int, int> TotalFlightsMonth()
         {
             IDictionary<int, int> flights = new Dictionary<int, int>();

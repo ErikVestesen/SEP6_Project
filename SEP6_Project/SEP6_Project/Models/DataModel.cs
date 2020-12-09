@@ -15,6 +15,6 @@ namespace SEP6_Project.Models
 
         public IDictionary<string, int> top10flights { get; set; }
         public IDictionary<string, int> top10flights_origin { get; set; }
-        public IDictionary<string, int> meanAirtime { get; set; }
+        public IDictionary<int, string> meanAirtime { get; set; }
     }
 }

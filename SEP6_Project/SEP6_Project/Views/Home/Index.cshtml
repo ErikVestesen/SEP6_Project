@@ -4,6 +4,12 @@
 @model SEP6_Project.Models.DataModel
 <html>
 <body class="is-preload">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+    <script src="~/js/flights.js"></script>
 
     <!-- Header -->
     <section id="header">
@@ -39,13 +45,6 @@
     </section>
 
     <!-- 2 - Flights pr month from each origin -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-
-    <script src="~/js/flights.js"></script>
-
     <section id="four" class="main style2 special">
         <div class="container">
             <header class="major">
@@ -74,28 +73,12 @@
     </section>
 
     <!-- The mean airtime of each of the origins in a table -->
-    <section id="two" class="main style2">
+    <section id="four" class="main style2 special">
         <div class="container">
-            <div class="row gtr-150">
-                <div class="col-6 col-12-medium">
-                    <h3>Mean Air time</h3>
-                    @foreach (var air_time in Model.meanAirtime)
-                    {
-                        <h5>Airtime : @air_time.Key - Mean Airtime : @air_time.Value</h5>
-                    }
-                </div>
-                <div class="col-6 col-12-medium">
-                    <header class="major">
-                        <h2>
-                            Lorem ipsum dolor adipiscing<br />
-                            amet dolor consequat
-                        </h2>
-                    </header>
-                    <p>Adipiscing a commodo ante nunc accumsan interdum mi ante adipiscing. A nunc lobortis non nisl amet vis volutpat aclacus nascetur ac non. Lorem curae eu ante amet sapien in tempus ac. Adipiscing id accumsan adipiscing ipsum.</p>
-                    <p>Blandit faucibus proin. Ac aliquam integer adipiscing enim non praesent vis commodo nunc phasellus cubilia ac risus accumsan. Accumsan blandit. Lobortis phasellus non lobortis dit varius mi varius accumsan lobortis. Blandit ante aliquam lacinia lorem lobortis semper morbi col faucibus vitae integer placerat accumsan orci eu mi odio tempus adipiscing adipiscing adipiscing curae consequat feugiat etiam dolore.</p>
-                    <p>Adipiscing a commodo ante nunc accumsan interdum mi ante adipiscing. A nunc lobortis non nisl amet vis volutpat aclacus nascetur ac non. Lorem curae eu ante amet sapien in tempus ac. Adipiscing id accumsan adipiscing ipsum.</p>
-                </div>
-            </div>
+            <header class="major">
+                <div id="meanairtime" style="height: 250px;"></div>
+            </header>
+            <p>The mean airtime from each origin.</p>
         </div>
     </section>
 

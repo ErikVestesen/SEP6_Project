@@ -25,7 +25,6 @@ namespace SEP6_Project.Controllers
             DatabaseOperations db = new DatabaseOperations();
             dm.flights = db.TotalFlightsMonth();
             dm.top10flights = db.Top10Flights();
-            dm.meanAirtime = db.MeanAirtime();
             return View(dm);
         }
 
@@ -34,7 +33,6 @@ namespace SEP6_Project.Controllers
             return View();
         }
 
-        [System.Web.Mvc.HttpGet]
         public JsonResult SelectOrigin()
         {
             List<int> flights = new List<int>();
@@ -60,12 +58,8 @@ namespace SEP6_Project.Controllers
         }
         public JsonResult GetMeanAirTime()
         {
-            IDictionary<string, int> flights = new Dictionary<string, int>();
-
             DataModel dm = new DataModel();
             DatabaseOperations db = new DatabaseOperations();
-            flights = db.MeanAirtime();
-
             dm.meanAirtime = db.MeanAirtime();
 
             return Json(dm);

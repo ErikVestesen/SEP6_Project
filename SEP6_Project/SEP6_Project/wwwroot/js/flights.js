@@ -53,7 +53,6 @@ function Top10Flights() {
         dataType: "json",
         success: function (response) {
             var keys = Object.keys(response.top10flights_origin);
-            alert(keys);
             Morris.Bar({
                 element: element,
                 data: [

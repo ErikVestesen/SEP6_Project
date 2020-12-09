@@ -8,14 +8,17 @@ namespace SEP6_Project.Models
     public class TempModel
     {
 
-        public List<Temperature> daily_temp_JFK = new List<Temperature>();
+        public List<Temperature> daily_temp_JFK { get; set; }
 
-        public List<Temperature> daily_temp_EWR = new List<Temperature>();
+        public List<Temperature> daily_temp_EWR { get; set; }
 
-        public List<Temperature> daily_temp_LGA = new List<Temperature>();
+        public List<Temperature> daily_temp_LGA { get; set; }
 
 
-        public List<Temperature> temp_JFK = new List<Temperature>();
+        public List<Temperature> temp_JFK { get; set; }
+        public List<Temperature> temp_EWR { get; set; }
+        public List<Temperature> temp_LGA { get; set; }
+
 
     }
 }

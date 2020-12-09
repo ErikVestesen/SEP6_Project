@@ -4,6 +4,10 @@
 @model SEP6_Project.Models.TempModel
 <html>
 <body class="is-preload">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 
     <!-- Header -->
     <section id="header">
@@ -23,30 +27,42 @@
         </div>
     </section>
 
-    <!-- 1 - Temperature at JFK -->
+    <!-- 1 - For each of the three origins, all temperature attributes (i.e. attributes involving a
+    temperature unit) in degree Celsius (i.e. you need to convert from Fahrenheit to Celsius) -->
     <section id="one" class="main style1">
         <div class="container">
             <div class="row gtr-150">
                 <div class="col-6 col-12-medium">
-                    <h3>Temperature at JFK</h3>
-                    <h3> °C</h3>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 2 - The daily mean temperature (in Celsius) at JFK-->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+    <section id="four" class="main style2 special">
+        <div class="container">
+            <header class="major">
+                <div id="tempChartJFK" style="height: 250px;"></div>
+            </header>
+            <p>All temperature attributes from JFK.</p>
+        </div>
+    </section>
 
     <section id="four" class="main style2 special">
         <div class="container">
             <header class="major">
-                <div id="myfirstchart" style="height: 250px;"></div>
+                <div id="tempChartEWR" style="height: 250px;"></div>
             </header>
-            <p>Daily mean temperature.</p>
+            <p>All temperature attributes from EWR.</p>
+        </div>
+    </section>
+
+    <section id="four" class="main style2 special">
+        <div class="container">
+            <header class="major">
+                <div id="tempChartLGA" style="height: 250px;"></div>
+            </header>
+            <p>All temperature attributes from LGA.</p>
         </div>
     </section>
 

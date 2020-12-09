@@ -6,13 +6,14 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace SEP6_Project.Controllers
 {
     public class TempController : Controller
     {
         public IActionResult TempIndex()
         {
-            return View(loadTempModel());
+            return View();
         }
 
 
@@ -21,25 +22,55 @@ namespace SEP6_Project.Controllers
             return (fahrenheit - 32) * (5.0 / 9.0); 
         }
 
-        [System.Web.Mvc.HttpGet]
         public JsonResult GetTempModel()
         {
-            return Json(loadTempModel());
+            TempModel tm = new TempModel();
+            tm = loadTempModel();
+            return Json(tm);
         }
 
         public TempModel loadTempModel()
         {
             TempModel tm = new TempModel();
 
-            tm.daily_temp_JFK = getDailyTempFromOrigin("JFK");
-            tm.daily_temp_EWR = getDailyTempFromOrigin("EWR");
-            tm.daily_temp_LGA = getDailyTempFromOrigin("LGA");
+            //tm.daily_temp_JFK = getDailyTempFromOrigin("JFK");
+            //tm.daily_temp_EWR = getDailyTempFromOrigin("EWR");
+            //tm.daily_temp_LGA = getDailyTempFromOrigin("LGA");
 
             tm.temp_JFK = getTempFromOrigin("JFK");
+            tm.temp_EWR = getTempFromOrigin("EWR");
+            tm.temp_LGA = getTempFromOrigin("LGA");
 
             return tm;
         }
-        
+
+        public JsonResult loadTempJFK()
+        {
+            TempModel tm = new TempModel();
+
+            tm.temp_JFK = getTempFromOrigin("JFK");
+
+            return Json(tm);
+        }
+
+        public JsonResult loadTempEWR()
+        {
+            TempModel tm = new TempModel();
+
+            tm.temp_EWR = getTempFromOrigin("EWR");
+
+            return Json(tm);
+        }
+
+        public JsonResult loadTempLGA()
+        {
+            TempModel tm = new TempModel();
+
+            tm.temp_LGA = getTempFromOrigin("LGA");
+
+            return Json(tm);
+        }
+
         public List<Temperature> getTempFromOrigin(string origin)
         {
             //Move me to db operations
@@ -61,17 +92,19 @@ namespace SEP6_Project.Controllers
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                Temperature t = new Temperature(
+                if (reader["temp"] != System.DBNull.Value)
+                {
+                    Temperature t = new Temperature(
                     origin,
                     fahrenheitToCelcius(Convert.ToDouble(reader["temp"])),
                     Convert.ToInt32(reader["dd"]),
                     Convert.ToInt32(reader["mm"]),
                     Convert.ToInt32(reader["yyyy"])
                     );
-                result.Add(t);
+                    result.Add(t);
+                }
             }
             reader.Close();
-
 
             conn.Close();
             return result;

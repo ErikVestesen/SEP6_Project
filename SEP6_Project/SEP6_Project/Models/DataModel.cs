@@ -19,5 +19,8 @@ namespace SEP6_Project.Models
         public List<int> topflightsJFK { get; set; }
         public List<int> topflightsEWR { get; set; }
         public List<int> topflightsLGA { get; set; }
+
+        public List<string> meanAirtime { get; set; }
+        public List<string> weatherObservation { get; set; }
     }
 }

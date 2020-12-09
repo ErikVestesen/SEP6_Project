@@ -1,6 +1,8 @@
 ﻿window.onload = function () {
     this.loadFlights();
     this.Top10Flights();
+    this.GetMeanAir();
+    this.GetWeather();
 } 
 
 
@@ -53,7 +55,6 @@ function Top10Flights() {
         dataType: "json",
         success: function (response) {
             var keys = Object.keys(response.top10flights);
-            alert(keys);
             Morris.Bar({
                 element: element,
                 data: [
@@ -71,6 +72,62 @@ function Top10Flights() {
                 xkey: 'y',
                 ykeys: ['a', 'b', 'c'],
                 labels: ['JFK Flights', 'EWR Flights', 'LGA Flights']
+            });
+        },
+        error: function (e) {
+            alert("Something Wrong.");
+        }
+    });
+}
+
+function GetMeanAir() {
+    var element = document.getElementById("meanAir");
+
+    $.ajax({
+        type: "GET",
+        url: 'Home/GetMeanAir',
+        data: {},
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            Morris.Bar({
+                element: element,
+                data: [
+                    { y: response.meanAirtime[0], a: response.meanAirtime[1]},
+                    { y: response.meanAirtime[2], a: response.meanAirtime[3]},
+                    { y: response.meanAirtime[4], a: response.meanAirtime[5]},
+                ],
+                xkey: 'y',
+                ykeys: ['a'],
+                labels: ['Mean airtime minutes']
+            });
+        },
+        error: function (e) {
+            alert("Something Wrong.");
+        }
+    });
+}
+
+function GetWeather() {
+    var element = document.getElementById("weatherobs");
+
+    $.ajax({
+        type: "GET",
+        url: 'Home/GetWeather',
+        data: {},
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            Morris.Bar({
+                element: element,
+                data: [
+                    { y: response.weatherObservation[0], a: response.weatherObservation[1] },
+                    { y: response.weatherObservation[2], a: response.weatherObservation[3] },
+                    { y: response.weatherObservation[4], a: response.weatherObservation[5] },
+                ],
+                xkey: 'y',
+                ykeys: ['a'],
+                labels: ['Weather observations']
             });
         },
         error: function (e) {

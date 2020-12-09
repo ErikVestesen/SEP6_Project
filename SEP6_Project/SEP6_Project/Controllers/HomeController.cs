@@ -59,6 +59,22 @@ namespace SEP6_Project.Controllers
             return Json(dm);
         } 
 
+        public JsonResult GetMeanAir()
+        {
+            DataModel dm = new DataModel();
+            DatabaseOperations db = new DatabaseOperations();
+            dm.meanAirtime = db.MeanAirtime();
+            return Json(dm);
+        }
+
+        public JsonResult GetWeather()
+        {
+            DataModel dm = new DataModel();
+            DatabaseOperations db = new DatabaseOperations();
+            dm.weatherObservation = db.WeatherObservations();
+            return Json(dm);
+        }
+
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         //public IActionResult Error()
         //{

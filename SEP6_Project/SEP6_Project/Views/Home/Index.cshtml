@@ -28,11 +28,25 @@
         <div class="container">
             <div class="row gtr-150">
                 <div class="col-6 col-12-medium">
+                    <style>
+                        table, th, td {
+                            border: 2px solid black;
+                        }
+                    </style>
                     <h3>Total number of flights for each month</h3>
-                    @foreach (var flights in Model.flights)
-                    {
-                        <h5> Month # : @flights.Key  - Total flights : @flights.Value </h5>
-                    }
+                    <table style="width:100%">
+                        <tr>
+                            <th>Month</th>
+                            <th>Total flight</th>
+                        </tr>
+                        @foreach (var flights in Model.flights)
+                        {
+                            <tr>
+                                <td>@flights.Key</td>
+                                <td>@flights.Value</td>
+                            </tr>
+                        }
+                    </table>
                 </div>
             </div>
         </div>
@@ -49,7 +63,7 @@
     <section id="four" class="main style2 special">
         <div class="container">
             <header class="major">
-                <div id="myfirstchart" style="height: 250px;"></div>
+                <div id="myfirstchart" style="height: 250px; width: 1400px;"></div>
             </header>
             <p>Flights pr. month from each origin.</p>
         </div>
@@ -61,10 +75,19 @@
             <div class="row gtr-150">
                 <div class="col-6 col-12-medium">
                     <h3>Top 10 destinations and # of flights</h3>
-                    @foreach (var dest in Model.top10flights)
-                    {
-                        <h5> Destination : @dest.Key  - Total flights : @dest.Value </h5>
-                    }
+                    <table style="width:100%">
+                        <tr>
+                            <th>Destination</th>
+                            <th>Total flights</th>
+                        </tr>
+                        @foreach (var dest in Model.top10flights)
+                        {
+                            <tr>
+                                <td>@dest.Key</td>
+                                <td>@dest.Value</td>
+                            </tr>
+                        }
+                    </table>
                 </div>
             </div>
         </div>
@@ -82,6 +105,27 @@
         </div>
     </section>
 
+    <!-- 5 - The mean airtime of each of the origins in a table -->
+    <section id="one" class="main style1">
+        <div class="container">
+            <header class="">
+                <div id="meanAir" style="height: 250px;"></div>
+            </header>
+            <p style="text-align: center; line-height: 100px;">Mean airtime for Origin.</p>
+        </div>
+    </section>
+
+
+    <!-- 6 - How many weather observations there are for the origins in a table -->
+
+    <section id="four" class="main style2 special">
+        <div class="container">
+            <header class="major">
+                <div id="weatherobs" style="height: 250px;"></div>
+            </header>
+            <p>Weather observations from Origin.</p>
+        </div>
+    </section>
 
     <!-- Two -->
     <section id="two" class="main style2">

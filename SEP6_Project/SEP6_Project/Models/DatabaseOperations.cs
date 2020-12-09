@@ -154,5 +154,50 @@ namespace SEP6_Project.Models
             conn.Close();
             return flightTotal;
         }
+
+
+        //The mean AirTime of each of the origins in a table
+        public List<string> MeanAirtime()
+        {
+            List<string> meanAirtime = new List<string>();
+
+            conn.Open();
+            string query = "";
+
+            query = "SELECT AVG(CAST(air_time as bigint)) AS mean_air_time, origin FROM flights WHERE air_time  <> 'NA' GROUP BY origin";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                meanAirtime.Add(reader["origin"].ToString());
+                meanAirtime.Add(reader["mean_air_time"].ToString());
+            }
+            reader.Close();
+
+            conn.Close();
+            return meanAirtime;
+        }
+
+        //All weather observations from origin
+        public List<string> WeatherObservations()
+        {
+            List<string> weatherOb = new List<string>();
+
+            conn.Open();
+            string query = "";
+
+            query = "SELECT COUNT(*) AS Weather_Observations, origin FROM weather GROUP BY origin";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                weatherOb.Add(reader["origin"].ToString());
+                weatherOb.Add(reader["Weather_Observations"].ToString());
+            }
+            reader.Close();
+
+            conn.Close();
+            return weatherOb;
+        }
     }
 }

@@ -23,7 +23,7 @@
         </div>
     </section>
 
-    <!-- 1 - Total number of flights pr. month -->
+    <!-- 1 - Total number of flights per month -->
     <section id="one" class="main style1">
         <div class="container">
             <div class="row gtr-150">
@@ -38,7 +38,7 @@
         </div>
     </section>
 
-    <!-- 2 - Flights pr month from each origin -->
+    <!-- 2 - Total number of flights per month from the three origins in one plot. -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
@@ -55,7 +55,7 @@
         </div>
     </section>
 
-    <!-- 3 - Top 10 flights -->
+    <!-- 3 - The top-10 destinations and how many flights were made to theses -->
     <section id="one" class="main style1">
         <div class="container">
             <div class="row gtr-150">
@@ -66,12 +66,22 @@
                         <h5> Destination : @dest.Key  - Total flights : @dest.Value </h5>
                     }
                 </div>
-                <div class="col-6 col-12-medium imp-medium">
-                    <div id="topflights" style="height: 250px; width:auto"></div>
-                </div>
             </div>
         </div>
     </section>
+
+    <!-- 4 - For these 10 destinations, make a visualization of the number of flights from the
+    three origins to the top-10 destination. -->
+
+    <section id="four" class="main style2 special">
+        <div class="container">
+            <header class="major">
+                <div id="topflights" style="height: 250px;"></div>
+            </header>
+            <p>Top 10 flights pr. Origin.</p>
+        </div>
+    </section>
+
 
     <!-- Two -->
     <section id="two" class="main style2">

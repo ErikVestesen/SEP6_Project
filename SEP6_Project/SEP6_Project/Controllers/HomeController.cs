@@ -12,7 +12,7 @@ namespace SEP6_Project.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger; //Hey Erik
+        private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
         {

@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace SEP6_Project.Controllers
 {
-    public class HomeController : Controller //Test write
+    public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
 

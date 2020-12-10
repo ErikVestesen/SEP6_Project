@@ -15,52 +15,49 @@
             <span class="icon solid major fa-cloud"></span>
             <h1>
                 Hi, this is <strong>SEP6</strong>, a <strong>CLOUD</strong> project by<br />
-                Arshad, Erik and Casper. You are on page 2.
+                Arshad, Erik and Casper. You are on page 3.
             </h1>
             <p>
                 Data visualization of NYC flights data,<br />
                 utilizing C# and Google Cloud, along with JS, HTML5 and CSS3.
             </p>
-            <br />
-            <ul>
+            <ul class="actions special">
                 <li><a href="#one" class="button scrolly">Discover</a></li>
-                <br />
-                <li><input type="button" value="Next page" onclick="@("window.location.href='" + @Url.Action("Meanindex", "Mean") + "'");" /></li>
             </ul>
         </div>
     </section>
 
-    <!-- 1 - For each of the three origins, all temperature attributes (i.e. attributes involving a
-    temperature unit) in degree Celsius (i.e. you need to convert from Fahrenheit to Celsius) -->
+    <!-- 1 - The daily mean temperature (in Celsius) at JFK and
+        The daily mean temperature (in Celsius) for each origin in the same plot -->
 
     <section id="four" class="main style2 special">
         <div class="container">
             <header class="major">
-                <div id="tempChartJFK" style="height: 450px;"></div>
+                <div id="meanTempChartJFK" style="height: 250px;"></div>
             </header>
-            <p>All temperature attributes from JFK.</p>
+            <p>Daily mean temperature from JFK.</p>
         </div>
     </section>
 
     <section id="four" class="main style2 special">
         <div class="container">
             <header class="major">
-                <div id="tempChartEWR" style="height: 450px;"></div>
+                <div id="meanTempAll" style="height: 400px;"></div>
             </header>
-            <p>All temperature attributes from EWR.</p>
+            <p>All mean attributes from Origins.</p>
         </div>
     </section>
 
-    <section id="four" class="main style2 special">
+    <section id="one" class="main style1">
         <div class="container">
-            <header class="major">
-                <div id="tempChartLGA" style="height: 450px;"></div>
-            </header>
-            <p>All temperature attributes from LGA.</p>
+            <div class="row gtr-150">
+                <div class="col-6 col-12-medium">
+                    <h3>Top 10 destinations and # of flights</h3>
+                </div>
+            </div>
         </div>
     </section>
 
-    
     <!-- Footer -->
     <section id="footer">
         <ul class="icons">
@@ -84,7 +81,7 @@
     <script src="~/assets/js/util.js"></script>
     <script src="~/assets/js/main.js"></script>
 
-    <script src="~/js/temps.js"></script>
+    <script src="~/js/mean.js"></script>
 
 
 </body>

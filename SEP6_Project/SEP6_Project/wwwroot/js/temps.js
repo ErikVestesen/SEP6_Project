@@ -4,7 +4,7 @@
     this.loadAllTempLGA();
 }
 
-function loadAllTempJFK() {
+async function loadAllTempJFK() {
     var element = document.getElementById("tempChartJFK");
 
     $.ajax({
@@ -13,7 +13,7 @@ function loadAllTempJFK() {
         data: {},
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        success: function (response) {
+        success: await function (response) {
             var morrisData = [];
             for (var b in response.temp_JFK) {
                 //var d = new Date(response.temp_JFK[b].year, response.temp_JFK[b].month, response.temp_JFK[b].day);
@@ -26,7 +26,8 @@ function loadAllTempJFK() {
                 data: morrisData,
                 xkey: 'Day',
                 ykeys: ['Temp'],
-                labels: ['Temp']
+                labels: ['Temp'],
+                pointSize: 2
             });
         },
         error: function (e) {
@@ -35,7 +36,7 @@ function loadAllTempJFK() {
     });
 }
 
-function loadAllTempEWR() {
+async function loadAllTempEWR() {
     var element = document.getElementById("tempChartEWR");
 
     $.ajax({
@@ -57,7 +58,8 @@ function loadAllTempEWR() {
                 data: morrisData,
                 xkey: 'Day',
                 ykeys: ['Temp'],
-                labels: ['Temp']
+                labels: ['Temp'],
+                pointSize: 2
             });
         },
         error: function (e) {
@@ -66,7 +68,7 @@ function loadAllTempEWR() {
     });
 }
 
-function loadAllTempLGA() {
+async function loadAllTempLGA() {
     var element = document.getElementById("tempChartLGA");
 
     $.ajax({
@@ -88,7 +90,8 @@ function loadAllTempLGA() {
                 data: morrisData,
                 xkey: 'Day',
                 ykeys: ['Temp'],
-                labels: ['Temp']
+                labels: ['Temp'],
+                pointSize: 2
             });
         },
         error: function (e) {

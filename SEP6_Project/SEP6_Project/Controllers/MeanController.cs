@@ -2,47 +2,35 @@
 using SEP6_Project.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
-
 namespace SEP6_Project.Controllers
 {
-    public class TempController : Controller
+    public class MeanController : Controller
     {
         DatabaseOperations db = new DatabaseOperations();
-        public IActionResult TempIndex()
+        public IActionResult MeanIndex()
         {
             return View();
         }
 
-        public JsonResult loadTempJFK()
+        public JsonResult loadMeanJFK()
         {
             TempModel tm = new TempModel();
 
-            tm.temp_JFK = db.getTempFromOrigin("JFK");
-
+            tm.mean_JFK = db.getDailyTempFromOrigin("JFK");
             return Json(tm);
         }
 
-        public JsonResult loadTempEWR()
+        public JsonResult meanTempAll()
         {
             TempModel tm = new TempModel();
 
-            tm.temp_EWR = db.getTempFromOrigin("EWR");
-
+            tm.mean_JFK = db.getDailyTempFromOrigin("JFK");
+            tm.mean_EWR = db.getDailyTempFromOrigin("EWR");
+            tm.mean_LGA = db.getDailyTempFromOrigin("LGA");
             return Json(tm);
         }
-
-        public JsonResult loadTempLGA()
-        {
-            TempModel tm = new TempModel();
-
-            tm.temp_LGA = db.getTempFromOrigin("LGA");
-
-            return Json(tm);
-        }
-
     }
 }

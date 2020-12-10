@@ -19,6 +19,10 @@ namespace SEP6_Project.Models
         public List<Temperature> temp_EWR { get; set; }
         public List<Temperature> temp_LGA { get; set; }
 
+        public List<Temperature> mean_JFK { get; set; }
+        public List<Temperature> mean_EWR { get; set; }
+        public List<Temperature> mean_LGA { get; set; }
+
 
     }
 }

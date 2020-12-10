@@ -125,7 +125,7 @@ namespace SEP6_Project.Controllers
                             "FROM weather " +
                             "WHERE origin = '"+origin+"' " +
                             "GROUP BY datepart(day, weather.time_hour), datepart(month, weather.time_hour), datepart(year, weather.time_hour) " +
-                            "ORDER BY dd ASC, mm ASC, yyyy ASC ";
+                            "ORDER BY mm ASC, dd ASC, yyyy ASC ";
 
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataReader reader = cmd.ExecuteReader();

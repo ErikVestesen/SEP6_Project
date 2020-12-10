@@ -77,7 +77,6 @@ C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\bin\Deb
 C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\obj\Debug\netcoreapp3.1\SEP6_Project.csprojAssemblyReference.cache
 C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\bin\Debug\netcoreapp3.1\System.Web.Mvc.dll
 C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\bin\Debug\netcoreapp3.1\System.Web.Razor.dll
 C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\bin\Debug\netcoreapp3.1\System.Web.Helpers.dll
@@ -135,3 +134,4 @@ C:\Users\ErikV\source\repos\Sep6 Project\SEP6_Project\SEP6_Project\obj\Debug\net
 C:\Users\ErikV\source\repos\Sep6 Project\SEP6_Project\SEP6_Project\obj\Debug\netcoreapp3.1\SEP6_Project.Views.pdb
 C:\Users\ErikV\source\repos\Sep6 Project\SEP6_Project\SEP6_Project\obj\Debug\netcoreapp3.1\SEP6_Project.csproj.CopyComplete
 C:\Users\ErikV\source\repos\Sep6 Project\SEP6_Project\SEP6_Project\obj\Debug\netcoreapp3.1\SEP6_Project.genruntimeconfig.cache
+C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\obj\Debug\netcoreapp3.1\SEP6_Project.csprojAssemblyReference.cache

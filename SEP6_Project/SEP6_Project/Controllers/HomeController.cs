@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace SEP6_Project.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : Controller //Test write
     {
         private readonly ILogger<HomeController> _logger;
 
@@ -33,7 +33,6 @@ namespace SEP6_Project.Controllers
             return View();
         }
 
-        [System.Web.Mvc.HttpGet]
         public JsonResult SelectOrigin()
         {
             List<int> flights = new List<int>();
@@ -51,12 +50,30 @@ namespace SEP6_Project.Controllers
 
             DataModel dm = new DataModel();
             DatabaseOperations db = new DatabaseOperations();
-            flights = db.Top10Flights(); 
 
-            dm.top10flights_origin = db.Top10FlightsForOrigin(flights); 
+            dm.top10flights = db.Top10Flights();
+            dm.topflightsJFK = db.Top10FlightsForOrigin(dm.top10flights, "JFK");
+            dm.topflightsEWR = db.Top10FlightsForOrigin(dm.top10flights, "EWR");
+            dm.topflightsLGA = db.Top10FlightsForOrigin(dm.top10flights, "LGA");
 
             return Json(dm);
         } 
+
+        public JsonResult GetMeanAir()
+        {
+            DataModel dm = new DataModel();
+            DatabaseOperations db = new DatabaseOperations();
+            dm.meanAirtime = db.MeanAirtime();
+            return Json(dm);
+        }
+
+        public JsonResult GetWeather()
+        {
+            DataModel dm = new DataModel();
+            DatabaseOperations db = new DatabaseOperations();
+            dm.weatherObservation = db.WeatherObservations();
+            return Json(dm);
+        }
 
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         //public IActionResult Error()

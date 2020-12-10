@@ -23,22 +23,36 @@
         </div>
     </section>
 
-    <!-- 1 - Total number of flights pr. month -->
+    <!-- 1 - Total number of flights per month -->
     <section id="one" class="main style1">
         <div class="container">
             <div class="row gtr-150">
                 <div class="col-6 col-12-medium">
+                    <style>
+                        table, th, td {
+                            border: 2px solid black;
+                        }
+                    </style>
                     <h3>Total number of flights for each month</h3>
-                    @foreach (var flights in Model.flights)
-                    {
-                        <h5> Month # : @flights.Key  - Total flights : @flights.Value </h5>
-                    }
+                    <table style="width:100%">
+                        <tr>
+                            <th>Month</th>
+                            <th>Total flight</th>
+                        </tr>
+                        @foreach (var flights in Model.flights)
+                        {
+                            <tr>
+                                <td>@flights.Key</td>
+                                <td>@flights.Value</td>
+                            </tr>
+                        }
+                    </table>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 2 - Flights pr month from each origin -->
+    <!-- 2 - Total number of flights per month from the three origins in one plot. -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
@@ -49,27 +63,67 @@
     <section id="four" class="main style2 special">
         <div class="container">
             <header class="major">
-                <div id="myfirstchart" style="height: 250px;"></div>
+                <div id="myfirstchart" style="height: 250px; width: 1400px;"></div>
             </header>
             <p>Flights pr. month from each origin.</p>
         </div>
     </section>
 
-    <!-- 3 - Top 10 flights -->
+    <!-- 3 - The top-10 destinations and how many flights were made to theses -->
     <section id="one" class="main style1">
         <div class="container">
             <div class="row gtr-150">
                 <div class="col-6 col-12-medium">
                     <h3>Top 10 destinations and # of flights</h3>
-                    @foreach (var dest in Model.top10flights)
-                    {
-                        <h5> Destination : @dest.Key  - Total flights : @dest.Value </h5>
-                    }
-                </div>
-                <div class="col-6 col-12-medium imp-medium">
-                    <div id="topflights" style="height: 250px;"></div>
+                    <table style="width:100%">
+                        <tr>
+                            <th>Destination</th>
+                            <th>Total flights</th>
+                        </tr>
+                        @foreach (var dest in Model.top10flights)
+                        {
+                            <tr>
+                                <td>@dest.Key</td>
+                                <td>@dest.Value</td>
+                            </tr>
+                        }
+                    </table>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- 4 - For these 10 destinations, make a visualization of the number of flights from the
+    three origins to the top-10 destination. -->
+
+    <section id="four" class="main style2 special">
+        <div class="container">
+            <header class="major">
+                <div id="topflights" style="height: 250px;"></div>
+            </header>
+            <p>Top 10 flights pr. Origin.</p>
+        </div>
+    </section>
+
+    <!-- 5 - The mean airtime of each of the origins in a table -->
+    <section id="one" class="main style1">
+        <div class="container">
+            <header class="">
+                <div id="meanAir" style="height: 250px;"></div>
+            </header>
+            <p style="text-align: center; line-height: 100px;">Mean airtime for Origin.</p>
+        </div>
+    </section>
+
+
+    <!-- 6 - How many weather observations there are for the origins in a table -->
+
+    <section id="four" class="main style2 special">
+        <div class="container">
+            <header class="major">
+                <div id="weatherobs" style="height: 250px;"></div>
+            </header>
+            <p>Weather observations from Origin.</p>
         </div>
     </section>
 

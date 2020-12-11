@@ -135,3 +135,12 @@ C:\Users\ErikV\source\repos\Sep6 Project\SEP6_Project\SEP6_Project\obj\Debug\net
 C:\Users\ErikV\source\repos\Sep6 Project\SEP6_Project\SEP6_Project\obj\Debug\netcoreapp3.1\SEP6_Project.csproj.CopyComplete
 C:\Users\ErikV\source\repos\Sep6 Project\SEP6_Project\SEP6_Project\obj\Debug\netcoreapp3.1\SEP6_Project.genruntimeconfig.cache
 C:\Users\Casper Juhl\Source\Repos\SEP6_Project\SEP6_Project\SEP6_Project\obj\Debug\netcoreapp3.1\SEP6_Project.csprojAssemblyReference.cache
+C:\Users\Arshad\source\repos\SEP6_Project\SEP6_Project\SEP6_Project\obj\Debug\netcoreapp3.1\SEP6_Project.dll
+C:\Users\Arshad\source\repos\SEP6_Project\SEP6_Project\SEP6_Project\obj\Debug\netcoreapp3.1\SEP6_Project.pdb
+C:\Users\Arshad\source\repos\SEP6_Project\SEP6_Project\SEP6_Project\obj\Debug\netcoreapp3.1\SEP6_Project.csprojAssemblyReference.cache
+C:\Users\Arshad\source\repos\SEP6_Project\SEP6_Project\SEP6_Project\obj\Debug\netcoreapp3.1\SEP6_Project.AssemblyInfoInputs.cache
+C:\Users\Arshad\source\repos\SEP6_Project\SEP6_Project\SEP6_Project\obj\Debug\netcoreapp3.1\SEP6_Project.AssemblyInfo.cs
+C:\Users\Arshad\source\repos\SEP6_Project\SEP6_Project\SEP6_Project\obj\Debug\netcoreapp3.1\SEP6_Project.csproj.CoreCompileInputs.cache
+C:\Users\Arshad\source\repos\SEP6_Project\SEP6_Project\SEP6_Project\obj\Debug\netcoreapp3.1\SEP6_Project.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Arshad\source\repos\SEP6_Project\SEP6_Project\SEP6_Project\obj\Debug\netcoreapp3.1\SEP6_Project.RazorAssemblyInfo.cache
+C:\Users\Arshad\source\repos\SEP6_Project\SEP6_Project\SEP6_Project\obj\Debug\netcoreapp3.1\SEP6_Project.RazorAssemblyInfo.cs

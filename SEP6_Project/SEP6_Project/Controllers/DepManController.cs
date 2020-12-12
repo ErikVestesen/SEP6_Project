@@ -8,7 +8,7 @@ namespace SEP6_Project.Controllers
 {
     public class DepManController : Controller
     {
-        public IActionResult Depindex()
+        public IActionResult Depindex()//Casper
         {
             return View();
         }

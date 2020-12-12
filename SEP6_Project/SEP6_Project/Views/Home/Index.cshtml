@@ -21,7 +21,13 @@
             <ul>
                 <li><a href="#one" class="button scrolly">Discover</a></li>
                 <br />
-                <li><input type="button" value="Next page" onclick="@("window.location.href='" + @Url.Action("Tempindex", "Temp") + "'");" /></li>
+                <li><input type="button" value="Home" onclick="@("window.location.href='" + @Url.Action("Index", "Home") + "'");" /></li>
+                <br />
+                <li><input type="button" value="Temperature and Weather" onclick="@("window.location.href='" + @Url.Action("Tempindex", "Temp") + "'");" /></li>
+                <br />
+                <li><input type="button" value="Temperature and Weather mean" onclick="@("window.location.href='" + @Url.Action("MeanIndex", "Mean") + "'");" /></li>
+                <br />
+                <li><input type="button" value="Time and Manufacturer" onclick="@("window.location.href='" + @Url.Action("Depindex", "DepMan") + "'");" /></li>
             </ul>
         </div>
     </section>
@@ -69,6 +75,26 @@
                 <div id="myfirstchart" style="height: 250px; width: 1400px;"></div>
             </header>
             <p>Flights pr. month from each origin.</p>
+        </div>
+    </section>
+
+    <!-- Frequency stacked -->
+    <section id="one" class="main style1">
+        <div class="container">
+            <header class="">
+                <div id="freqStacked" style="height: 550px; width: 1400px;"></div>
+            </header>
+            <p style="text-align: center; line-height: 100px;">Frequency stacked.</p>
+        </div>
+    </section>
+
+    <!-- Stacked percentage -->
+    <section id="four" class="main style2 special">
+        <div class="container">
+            <header class="major">
+                <div id="percentStacked" style="height: 550px;"></div>
+            </header>
+            <p>Stacked percentage.</p>
         </div>
     </section>
 

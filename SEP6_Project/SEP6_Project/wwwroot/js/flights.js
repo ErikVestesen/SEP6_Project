@@ -1,5 +1,6 @@
 ﻿window.onload = function () {
     this.loadFlights();
+    this.frequencyStacked();
     this.Top10Flights();
     this.GetMeanAir();
     this.GetWeather();
@@ -37,12 +38,62 @@ function loadFlights() {
                 ykeys: ['a', 'b', 'c'],
                 labels: ['JFK Flights', 'EWR Flights', 'LGA Flights']
             });
+
+            var element2 = document.getElementById("freqStacked");
+
+            Morris.Bar({
+                element: element2,
+                data: [
+                    { y: 'January', a: response.flightsJFK[0], b: response.flightsEWR[0], c: response.flightsLGA[0] },
+                    { y: 'Febuary', a: response.flightsJFK[1], b: response.flightsEWR[1], c: response.flightsLGA[1] },
+                    { y: 'March', a: response.flightsJFK[2], b: response.flightsEWR[2], c: response.flightsLGA[2] },
+                    { y: 'April', a: response.flightsJFK[3], b: response.flightsEWR[3], c: response.flightsLGA[3] },
+                    { y: 'May', a: response.flightsJFK[4], b: response.flightsEWR[4], c: response.flightsLGA[4] },
+                    { y: 'June', a: response.flightsJFK[5], b: response.flightsEWR[5], c: response.flightsLGA[5] },
+                    { y: 'July', a: response.flightsJFK[6], b: response.flightsEWR[6], c: response.flightsLGA[6] },
+                    { y: 'August', a: response.flightsJFK[7], b: response.flightsEWR[7], c: response.flightsLGA[7] },
+                    { y: 'September', a: response.flightsJFK[8], b: response.flightsEWR[8], c: response.flightsLGA[8] },
+                    { y: 'October', a: response.flightsJFK[9], b: response.flightsEWR[9], c: response.flightsLGA[9] },
+                    { y: 'November', a: response.flightsJFK[10], b: response.flightsEWR[10], c: response.flightsLGA[10] },
+                    { y: 'December', a: response.flightsJFK[11], b: response.flightsEWR[11], c: response.flightsLGA[11] }
+                ],
+                xkey: 'y',
+                ykeys: ['a', 'b', 'c'],
+                labels: ['JFK Flights', 'EWR Flights', 'LGA Flights'],
+                stacked: true
+            });
+
+            var morrisData = [];
+            var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            var count = 0;
+            for (var b in response.flightsJFK) {
+                var total = response.flightsJFK[b] + response.flightsEWR[b] + response.flightsLGA[b];
+                var partJFK = response.flightsJFK[b]; var partEWR = response.flightsEWR[b]; var partLGA = response.flightsLGA[b];
+                var percentJFK = (partJFK / total) * 100;
+                var percentEWR = (partEWR / total) * 100;
+                var percentLGA = (partLGA / total) * 100;
+                morrisData.push({ 'y': months[count], 'a': percentJFK, 'b': percentEWR, 'c': percentLGA });
+                count = count + 1;
+            }
+
+            var element3 = document.getElementById("percentStacked");
+
+            Morris.Bar({
+                element: element3,
+                data: morrisData,
+                xkey: 'y',
+                ykeys: ['a', 'b', 'c'],
+                labels: ['JFK Flights', 'EWR Flights', 'LGA Flights'],
+                stacked: true
+            });
+
         },
         error: function (e) {
             alert("Something Wrong.");
         }
     });
 }
+
 
 function Top10Flights() {
     var element = document.getElementById("topflights");

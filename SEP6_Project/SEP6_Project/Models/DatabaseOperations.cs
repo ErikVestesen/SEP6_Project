@@ -280,5 +280,126 @@ namespace SEP6_Project.Models
         {
             return (fahrenheit - 32) * (5.0 / 9.0);
         }
+
+
+        public double[] getMeanDepArr(string origin)
+        {
+            SqlConnection conn = new SqlConnection("Data Source=den1.mssql8.gear.host;Initial Catalog=sep6;User id=sep6;Password=Dr4uvX~_Nkx4;");
+            double[] result = new double[2];
+
+            conn.Open(); 
+
+            string query = "select avg(TRY_CAST(f.dep_delay as DECIMAL(10,2))) as dep_delay,avg(TRY_CAST(f.arr_delay as DECIMAL(10,2))) as arr_delay, "+
+                            "origin "+
+                            "from flights f "+
+                            "where origin = '"+origin+"' "+
+                            "GROUP BY origin";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                result[0] = Convert.ToDouble(reader["dep_delay"]);
+                result[1] = Convert.ToDouble(reader["arr_delay"]);
+            }
+            reader.Close();
+
+
+            conn.Close();
+            return result;
+        }
+
+        public List<Manufacturer> getBigManufacturers()
+        {
+            SqlConnection conn = new SqlConnection("Data Source=den1.mssql8.gear.host;Initial Catalog=sep6;User id=sep6;Password=Dr4uvX~_Nkx4;");
+            List<Manufacturer> result = new List<Manufacturer>();
+
+
+            conn.Open(); 
+            string query =  "SELECT manufacturer,COUNT(manufacturer) AS planes  " +
+                            "FROM planes "+
+                            "GROUP BY manufacturer "+
+                            "HAVING COUNT(manufacturer) >= 200";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Manufacturer m = new Manufacturer();
+                m.name = reader["manufacturer"].ToString();
+                m.plane_count = Convert.ToInt32(reader["planes"]);
+                result.Add(m);
+            }
+            reader.Close();
+
+
+            conn.Close();
+            return result;
+        }
+
+        public List<Manufacturer> getManufacturersFlight()
+        {
+            SqlConnection conn = new SqlConnection("Data Source=den1.mssql8.gear.host;Initial Catalog=sep6;User id=sep6;Password=Dr4uvX~_Nkx4;");
+            List<Manufacturer> result = new List<Manufacturer>();
+
+
+            conn.Open(); 
+            string query = "SELECT COUNT(*) AS flight_count, p.manufacturer " +
+                            "FROM flights " +
+                            "OUTER APPLY " +
+                                "(SELECT tailnum, manufacturer " +
+                                "FROM planes " +
+                                "WHERE manufacturer in " +
+                                "(" +
+                                    "SELECT manufacturer " + 
+                                    "FROM planes " +
+                                    "GROUP BY manufacturer " + 
+                                "HAVING COUNT(manufacturer) >= 200 " +
+                                ")) " + 
+                            "AS p " +
+                            "WHERE p.tailnum = flights.tailnum " +
+                            "GROUP BY p.manufacturer";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Manufacturer m = new Manufacturer();
+                m.name = reader["manufacturer"].ToString();
+                m.flight_count = Convert.ToInt32(reader["flight_count"]);
+                result.Add(m);
+            }
+            reader.Close();
+
+
+            conn.Close();
+            return result;
+        }
+
+
+        public List<(string, int)> getAirbusModels()
+        {
+            SqlConnection conn = new SqlConnection("Data Source=den1.mssql8.gear.host;Initial Catalog=sep6;User id=sep6;Password=Dr4uvX~_Nkx4;");
+            List<(string, int)> result = new List<(string, int)>();
+
+
+            conn.Open();
+            string query = "SELECT model, count(model) AS model_count " +
+                           "FROM planes "+
+                           "WHERE manufacturer = 'AIRBUS' "+
+                           "GROUP BY model";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                result.Add((reader["model"].ToString(), Convert.ToInt32(reader["model_count"])));
+            }
+            reader.Close();
+
+
+            conn.Close();
+            return result;
+        }
     }
 }

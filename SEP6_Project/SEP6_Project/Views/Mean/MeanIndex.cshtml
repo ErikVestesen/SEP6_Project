@@ -15,17 +15,24 @@
             <span class="icon solid major fa-cloud"></span>
             <h1>
                 Hi, this is <strong>SEP6</strong>, a <strong>CLOUD</strong> project by<br />
-                Arshad, Erik and Casper. You are on page 3.
+                Arshad, Erik and Casper. You are on page 3. <br />
             </h1>
             <p>
                 Data visualization of NYC flights data,<br />
-                utilizing C# and Google Cloud, along with JS, HTML5 and CSS3.
+                this page displays a more generalized view of temperature and weather data, by visualizing the means.
             </p>
+            <br />
             <br />
             <ul>
                 <li><a href="#one" class="button scrolly">Discover</a></li>
                 <br />
-                <li><input type="button" value="Next page" onclick="@("window.location.href='" + @Url.Action("Depindex", "DepMan") + "'");" /></li>
+                <li><input type="button" value="Flight data" onclick="@("window.location.href='" + @Url.Action("Index", "Home") + "'");" /></li>
+                <br />
+                <li><input type="button" value="Weather data" onclick="@("window.location.href='" + @Url.Action("Tempindex", "Temp") + "'");" /></li>
+                <br />
+                <li><input type="button" value="Weather data mean" onclick="@("window.location.href='" + @Url.Action("MeanIndex", "Mean") + "'");" /></li>
+                <br />
+                <li><input type="button" value="Time and Manufacturer data" onclick="@("window.location.href='" + @Url.Action("Depindex", "DepMan") + "'");" /></li>
             </ul>
         </div>
     </section>
@@ -62,7 +69,6 @@
         </ul>
         <ul class="copyright">
             <li>&copy; Untitled</li>
-            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
         </ul>
     </section>
 

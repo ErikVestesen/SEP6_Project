@@ -1,6 +1,5 @@
 ﻿window.onload = function () {
     this.loadFlights();
-    this.frequencyStacked();
     this.Top10Flights();
     this.GetMeanAir();
     this.GetWeather();

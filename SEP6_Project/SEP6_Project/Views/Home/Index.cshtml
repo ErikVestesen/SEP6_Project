@@ -15,19 +15,21 @@
             </h1>
             <p>
                 Data visualization of NYC flights data,<br />
-                utilizing C# and Google Cloud, along with JS, HTML5 and CSS3.
+                utilizing C# and Google Cloud, along with JS, HTML5 and CSS3. <br />
+                This page displays data and graphs about flights and their frequency
+                along with airtime and number of weather observations.
             </p>
             <br />
             <ul>
                 <li><a href="#one" class="button scrolly">Discover</a></li>
                 <br />
-                <li><input type="button" value="Home" onclick="@("window.location.href='" + @Url.Action("Index", "Home") + "'");" /></li>
+                <li><input type="button" value="Flight data" onclick="@("window.location.href='" + @Url.Action("Index", "Home") + "'");" /></li>
                 <br />
-                <li><input type="button" value="Temperature and Weather" onclick="@("window.location.href='" + @Url.Action("Tempindex", "Temp") + "'");" /></li>
+                <li><input type="button" value="Weather data" onclick="@("window.location.href='" + @Url.Action("Tempindex", "Temp") + "'");" /></li>
                 <br />
-                <li><input type="button" value="Temperature and Weather mean" onclick="@("window.location.href='" + @Url.Action("MeanIndex", "Mean") + "'");" /></li>
+                <li><input type="button" value="Weather data mean" onclick="@("window.location.href='" + @Url.Action("MeanIndex", "Mean") + "'");" /></li>
                 <br />
-                <li><input type="button" value="Time and Manufacturer" onclick="@("window.location.href='" + @Url.Action("Depindex", "DepMan") + "'");" /></li>
+                <li><input type="button" value="Time and Manufacturer data" onclick="@("window.location.href='" + @Url.Action("Depindex", "DepMan") + "'");" /></li>
             </ul>
         </div>
     </section>
@@ -92,7 +94,7 @@
     <section id="four" class="main style2 special">
         <div class="container">
             <header class="major">
-                <div id="percentStacked" style="height: 550px;"></div>
+                <div id="percentStacked" style="height: 550px; width: 1400px;"></div>
             </header>
             <p>Stacked percentage.</p>
         </div>
@@ -167,7 +169,6 @@
         </ul>
         <ul class="copyright">
             <li>&copy; Untitled</li>
-            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
         </ul>
     </section>
 

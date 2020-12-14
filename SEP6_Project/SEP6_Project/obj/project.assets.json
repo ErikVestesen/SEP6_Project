@@ -566,19 +566,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Casper Juhl\\.nuget\\packages\\": {}
+    "C:\\Users\\Arshad\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Casper Juhl\\Source\\Repos\\SEP6_Project\\SEP6_Project\\SEP6_Project\\SEP6_Project.csproj",
+      "projectUniqueName": "C:\\Users\\Arshad\\Source\\Repos\\SEP6_Project\\SEP6_Project\\SEP6_Project\\SEP6_Project.csproj",
       "projectName": "SEP6_Project",
-      "projectPath": "C:\\Users\\Casper Juhl\\Source\\Repos\\SEP6_Project\\SEP6_Project\\SEP6_Project\\SEP6_Project.csproj",
-      "packagesPath": "C:\\Users\\Casper Juhl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Casper Juhl\\Source\\Repos\\SEP6_Project\\SEP6_Project\\SEP6_Project\\obj\\",
+      "projectPath": "C:\\Users\\Arshad\\Source\\Repos\\SEP6_Project\\SEP6_Project\\SEP6_Project\\SEP6_Project.csproj",
+      "packagesPath": "C:\\Users\\Arshad\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Arshad\\Source\\Repos\\SEP6_Project\\SEP6_Project\\SEP6_Project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Casper Juhl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Arshad\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -631,7 +631,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   },

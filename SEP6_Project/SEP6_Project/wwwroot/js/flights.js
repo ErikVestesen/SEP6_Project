@@ -20,18 +20,18 @@ function loadFlights() {
             Morris.Bar({
                 element: element,
                 data: [
-                    { y: 'January', a: response.flightsJFK[0], b: response.flightsEWR[0], c: response.flightsLGA[0]},
-                    { y: 'Febuary', a: response.flightsJFK[1], b: response.flightsEWR[1], c: response.flightsLGA[1]},
-                    { y: 'March', a: response.flightsJFK[2], b: response.flightsEWR[2], c: response.flightsLGA[2] },
-                    { y: 'April', a: response.flightsJFK[3], b: response.flightsEWR[3], c: response.flightsLGA[3] },
+                    { y: 'Jan', a: response.flightsJFK[0], b: response.flightsEWR[0], c: response.flightsLGA[0]},
+                    { y: 'Feb', a: response.flightsJFK[1], b: response.flightsEWR[1], c: response.flightsLGA[1]},
+                    { y: 'Mar', a: response.flightsJFK[2], b: response.flightsEWR[2], c: response.flightsLGA[2] },
+                    { y: 'Apr', a: response.flightsJFK[3], b: response.flightsEWR[3], c: response.flightsLGA[3] },
                     { y: 'May', a: response.flightsJFK[4], b: response.flightsEWR[4], c: response.flightsLGA[4] },
-                    { y: 'June', a: response.flightsJFK[5], b: response.flightsEWR[5], c: response.flightsLGA[5] },
-                    { y: 'July', a: response.flightsJFK[6], b: response.flightsEWR[6], c: response.flightsLGA[6] },
-                    { y: 'August', a: response.flightsJFK[7], b: response.flightsEWR[7], c: response.flightsLGA[7] },
-                    { y: 'September', a: response.flightsJFK[8], b: response.flightsEWR[8], c: response.flightsLGA[8] },
-                    { y: 'October', a: response.flightsJFK[9], b: response.flightsEWR[9], c: response.flightsLGA[9] },
-                    { y: 'November', a: response.flightsJFK[10], b: response.flightsEWR[10], c: response.flightsLGA[10] },
-                    { y: 'December', a: response.flightsJFK[11], b: response.flightsEWR[11], c: response.flightsLGA[11]}
+                    { y: 'Jun', a: response.flightsJFK[5], b: response.flightsEWR[5], c: response.flightsLGA[5] },
+                    { y: 'Jul', a: response.flightsJFK[6], b: response.flightsEWR[6], c: response.flightsLGA[6] },
+                    { y: 'Aug', a: response.flightsJFK[7], b: response.flightsEWR[7], c: response.flightsLGA[7] },
+                    { y: 'Sep', a: response.flightsJFK[8], b: response.flightsEWR[8], c: response.flightsLGA[8] },
+                    { y: 'Oct', a: response.flightsJFK[9], b: response.flightsEWR[9], c: response.flightsLGA[9] },
+                    { y: 'Nov', a: response.flightsJFK[10], b: response.flightsEWR[10], c: response.flightsLGA[10] },
+                    { y: 'Dec', a: response.flightsJFK[11], b: response.flightsEWR[11], c: response.flightsLGA[11]}
                 ],
                 xkey: 'y',
                 ykeys: ['a', 'b', 'c'],
@@ -43,18 +43,18 @@ function loadFlights() {
             Morris.Bar({
                 element: element2,
                 data: [
-                    { y: 'January', a: response.flightsJFK[0], b: response.flightsEWR[0], c: response.flightsLGA[0] },
-                    { y: 'Febuary', a: response.flightsJFK[1], b: response.flightsEWR[1], c: response.flightsLGA[1] },
-                    { y: 'March', a: response.flightsJFK[2], b: response.flightsEWR[2], c: response.flightsLGA[2] },
-                    { y: 'April', a: response.flightsJFK[3], b: response.flightsEWR[3], c: response.flightsLGA[3] },
+                    { y: 'Jan', a: response.flightsJFK[0], b: response.flightsEWR[0], c: response.flightsLGA[0] },
+                    { y: 'Feb', a: response.flightsJFK[1], b: response.flightsEWR[1], c: response.flightsLGA[1] },
+                    { y: 'Mar', a: response.flightsJFK[2], b: response.flightsEWR[2], c: response.flightsLGA[2] },
+                    { y: 'Apr', a: response.flightsJFK[3], b: response.flightsEWR[3], c: response.flightsLGA[3] },
                     { y: 'May', a: response.flightsJFK[4], b: response.flightsEWR[4], c: response.flightsLGA[4] },
-                    { y: 'June', a: response.flightsJFK[5], b: response.flightsEWR[5], c: response.flightsLGA[5] },
-                    { y: 'July', a: response.flightsJFK[6], b: response.flightsEWR[6], c: response.flightsLGA[6] },
-                    { y: 'August', a: response.flightsJFK[7], b: response.flightsEWR[7], c: response.flightsLGA[7] },
-                    { y: 'September', a: response.flightsJFK[8], b: response.flightsEWR[8], c: response.flightsLGA[8] },
-                    { y: 'October', a: response.flightsJFK[9], b: response.flightsEWR[9], c: response.flightsLGA[9] },
-                    { y: 'November', a: response.flightsJFK[10], b: response.flightsEWR[10], c: response.flightsLGA[10] },
-                    { y: 'December', a: response.flightsJFK[11], b: response.flightsEWR[11], c: response.flightsLGA[11] }
+                    { y: 'Jun', a: response.flightsJFK[5], b: response.flightsEWR[5], c: response.flightsLGA[5] },
+                    { y: 'Jul', a: response.flightsJFK[6], b: response.flightsEWR[6], c: response.flightsLGA[6] },
+                    { y: 'Aug', a: response.flightsJFK[7], b: response.flightsEWR[7], c: response.flightsLGA[7] },
+                    { y: 'Sep', a: response.flightsJFK[8], b: response.flightsEWR[8], c: response.flightsLGA[8] },
+                    { y: 'Oct', a: response.flightsJFK[9], b: response.flightsEWR[9], c: response.flightsLGA[9] },
+                    { y: 'Nov', a: response.flightsJFK[10], b: response.flightsEWR[10], c: response.flightsLGA[10] },
+                    { y: 'Dec', a: response.flightsJFK[11], b: response.flightsEWR[11], c: response.flightsLGA[11] }
                 ],
                 xkey: 'y',
                 ykeys: ['a', 'b', 'c'],
@@ -63,7 +63,7 @@ function loadFlights() {
             });
 
             var morrisData = [];
-            var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
             var count = 0;
             for (var b in response.flightsJFK) {
                 var total = response.flightsJFK[b] + response.flightsEWR[b] + response.flightsLGA[b];
